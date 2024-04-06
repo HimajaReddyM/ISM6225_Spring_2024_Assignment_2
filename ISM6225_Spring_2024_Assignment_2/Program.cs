@@ -54,7 +54,7 @@ namespace ISM6225_Spring_2024_Assignment_2
 
             //Question 7:
             Console.WriteLine("Question 7:");
-            int[] nums6 = { 1, 2, 1, 10 };
+            int[] nums6 = { 2, 1, 2 };
             int largestPerimeterResult = LargestPerimeter(nums6);
             Console.WriteLine(largestPerimeterResult);
 
