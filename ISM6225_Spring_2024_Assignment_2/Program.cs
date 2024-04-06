@@ -18,7 +18,7 @@ namespace ISM6225_Spring_2024_Assignment_2
             Console.WriteLine("Question 1:");
             int[] nums1 = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
             int numberOfUniqueNumbers = RemoveDuplicates(nums1);
-            Console.WriteLine($"{numberOfUniqueNumbers}, nums = [{string.Join(",", nums1[..numberOfUniqueNumbers])}]");
+            Console.WriteLine($"Output: {numberOfUniqueNumbers}, nums = [{string.Join(",", nums1)}]");
 
             //Question 2:
             Console.WriteLine("Question 2:");
@@ -99,23 +99,24 @@ namespace ISM6225_Spring_2024_Assignment_2
         {
             try
             {
+                if (nums == null || nums.Length == 0)
+                    return 0; // Return 0 if array is empty or null
 
-                if (nums.Length == 0) return 0;  // Handles empty array case
+                int k = 1; // Initializing with one as the first element is always unique.
 
-                int k = 1;  // Number of unique elements
-
-                 // Loop through the array starting from the second element
-                for (int i = 1; i < nums.Length; i++)
+                for (int i = 1; i < nums.Length; i++)// Iterate through the array starting from the second element
                 {
-                     // If current element is different from previous unique element
-                    if (nums[i] != nums[k - 1])
+                    if (nums[i] != nums[i - 1]) // Checking if the current element is different from the previous one
                     {
-                         // Place the current element at index k
-                        nums[k] = nums[i];
-                        k++;  // Increment the count of unique elements
+                        nums[k] = nums[i]; // Moving the unique element to the next position
+                        k++; // Increase the count of unique elements
                     }
                 }
-                return k;  // Return the count of unique elements
+                for (int i = k + 1; i < nums.Length; i++)
+                {
+                    nums[i] = 'H';
+                }
+                return k;// Return the count of unique elements
             }
 
             catch (Exception)
