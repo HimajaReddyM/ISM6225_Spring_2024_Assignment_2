@@ -18,7 +18,7 @@ namespace ISM6225_Spring_2024_Assignment_2
             Console.WriteLine("Question 1:");
             int[] nums1 = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
             int numberOfUniqueNumbers = RemoveDuplicates(nums1);
-            Console.WriteLine($"Output: {numberOfUniqueNumbers}, nums = [{string.Join(",", nums1[..numberOfUniqueNumbers])}]");
+            Console.WriteLine($"{numberOfUniqueNumbers}, nums = [{string.Join(",", nums1[..numberOfUniqueNumbers])}]");
 
             //Question 2:
             Console.WriteLine("Question 2:");
@@ -99,22 +99,23 @@ namespace ISM6225_Spring_2024_Assignment_2
         {
             try
             {
-                if (nums.Length == 0) return 0; // Handles empty array case
 
-                int k = 1; // Number of unique elements
+                if (nums.Length == 0) return 0;  // Handles empty array case
 
-                // Loop through the array starting from the second element
+                int k = 1;  // Number of unique elements
+
+                 // Loop through the array starting from the second element
                 for (int i = 1; i < nums.Length; i++)
                 {
-                    // If current element is different from previous unique element
+                     // If current element is different from previous unique element
                     if (nums[i] != nums[k - 1])
                     {
-                        // Place the current element at index k
+                         // Place the current element at index k
                         nums[k] = nums[i];
-                        k++; // Increment the count of unique elements
+                        k++;  // Increment the count of unique elements
                     }
                 }
-                return k; // Return the count of unique elements
+                return k;  // Return the count of unique elements
             }
 
             catch (Exception)
